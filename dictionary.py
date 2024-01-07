@@ -67,8 +67,10 @@ def unique(str):
     
 class Test(unittest.TestCase):
         dataT = [('abcd'), ('s484882'), ('')]
+        dataF = [('1112233'), ('fffdefdf', ('4883ifhuhfe()='))]
 if __name__ == "__main__":
     str = "abcccggggd"
     print(unique(str))
 
 import unittest
+
