@@ -1,5 +1,5 @@
-
 import random
+
 def get_choice(choice):
     if choice == "R":
         return "Rock"
@@ -7,6 +7,7 @@ def get_choice(choice):
         return "Paper"
     else:
         return "Scissor"
+
 def main():
     print("Welcome to our game")
     print("[R] = Rock, [P] = Paper, [S]= Scissor and [Q] = Quit Game")
@@ -21,32 +22,25 @@ def main():
         
         if user_choice == "Q":
             print('Thanks for joining. Have a nice day')
-        game_on = False
-    else:
-            random_index = random.randint(0,2 )
+            break
+        else:
+            random_index = random.randint(0, 2)
             computer_choice = choices[random_index]
             
-            print(f"You select{get_choice(user_choice)} vs Computer choice is {get_choice(computer_choice)}")
-            #winning rules
-            if user_choice == "R" and computer_choice == "S":
-                print("You win")
-            elif user_choice == "P" and computer_choice == "R":
-                print("You win")
-            elif user_choice == "S" and computer_choice == "P":
-                print("You win")
+            print(f"You select {get_choice(user_choice)} vs Computer choice is {get_choice(computer_choice)}")
             
-            elif user_choice == "R" and computer_choice == "P":
-                print("Sorry, you're lose")
-            elif user_choice == "P" and computer_choice == "S":
-                print("Sorry, you're lose")
-            elif user_choice == "S" and computer_choice == "R":
-                print("Sorry, you're lose")
-                
-            elif user_choice == computer_choice:
-                print(f"wow, it's a Draw")
+            if user_choice == computer_choice:
+                print(f"Wow, it's a Draw")
+            elif (
+                (user_choice == "R" and computer_choice == "S") or
+                (user_choice == "P" and computer_choice == "R") or
+                (user_choice == "S" and computer_choice == "P")
+            ):
+                print("You win")
             else:
-                print('Invalid option: Please enter [R, P, S, Q only]')
-    counter +=1
+                print("Sorry, you lose")
         
+        counter += 1
+
 if __name__ == "__main__":
     main()
